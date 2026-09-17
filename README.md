@@ -72,6 +72,21 @@ Do **not** wrap it in `pkill -f HyprNotes.py || HyprNotes.py`. That shell line
 contains the pattern in its own fallback, so `pkill` signals the shell running
 it, kills it, and the fallback is never reached.
 
+### AppImage
+
+```sh
+./packaging/build-appimage.sh
+```
+
+Builds `dist/HyprNotes-x86_64.AppImage`: a single portable executable. It
+bundles the Python interpreter, PyGObject, and the GTK4 / libadwaita /
+Pango / cairo / GLib shared libraries the build machine has installed —
+found via `ldd` and copied by soname, with their `.typelib` files. Fonts,
+the Wayland/X11 session and the Adwaita icon theme still come from the host
+(libadwaita already requires that theme, so any machine that can display a
+libadwaita app has it). Rebuild on the oldest distro you need to support if
+exact portability matters — it isn't a fully static bundle like Flatpak.
+
 ## Keyboard
 
 | | |
