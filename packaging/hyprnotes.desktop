@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=HyprNotes
+Comment=Notes as plain text files
+Comment[fr]=Des notes, en fichiers texte
+Exec=HyprNotes %U
+Icon=hyprnotes
+Categories=Utility;TextEditor;Office;
+Terminal=false
+StartupWMClass=dev.local.HyprNotes
